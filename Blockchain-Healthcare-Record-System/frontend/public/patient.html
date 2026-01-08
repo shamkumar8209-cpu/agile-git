@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient | HealthBlock</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    async function generateHash(file) {
+      const buffer = await file.arrayBuffer();
+      const hashBuffer = await crypto.subtle.digest("SHA-256", buffer);
+      return "0x" + [...new Uint8Array(hashBuffer)]
+        .map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    async function uploadRecord() {
+      const file = document.getElementById("record").files[0];
+      if (!file) return alert("Select a file");
+      document.getElementById("hash").innerText =
+        await generateHash(file);
+    }
+  </script>
+</head>
+
+<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white">
+
+<header class="px-10 py-6 border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-green-400">Patient Dashboard</h1>
+</header>
+
+<section class="px-10 py-16 max-w-4xl mx-auto">
+  <div class="glass-card">
+    <h2 class="text-xl font-semibold mb-4">Upload Medical Record</h2>
+    <input id="record" type="file" class="mb-4 w-full text-gray-300">
+    <button onclick="uploadRecord()"
+      class="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-3 rounded-lg">
+      Generate Blockchain Hash
+    </button>
+
+    <p class="mt-6 text-sm text-gray-400">Generated Record Hash</p>
+    <div id="hash" class="mt-2 p-3 text-xs bg-black rounded break-all"></div>
+  </div>
+</section>
+
+<style>
+  .glass-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 40px;
+  }
+</style>
+
+</body>
+</html>

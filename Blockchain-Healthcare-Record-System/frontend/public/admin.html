@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | HealthBlock</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white">
+
+<header class="px-10 py-6 border-b border-gray-800">
+  <h1 class="text-2xl font-bold text-purple-400">Admin Panel</h1>
+  <p class="text-sm text-gray-400">Blockchain Audit & Governance</p>
+</header>
+
+<section class="px-10 py-16 max-w-5xl mx-auto space-y-10">
+
+  <div class="glass-card">
+    <h2 class="text-xl font-semibold mb-4">Blockchain Audit Logs</h2>
+
+    <ul class="space-y-3 text-sm">
+      <li class="log-item">✔ Patient P102 uploaded medical record</li>
+      <li class="log-item">✔ Patient P221 granted access to Doctor D305</li>
+      <li class="log-item">✔ Doctor D102 accessed record (verified)</li>
+      <li class="log-item">✔ New hash added to blockchain ledger</li>
+    </ul>
+  </div>
+
+  <div class="glass-card">
+    <h2 class="text-xl font-semibold mb-2">User Verification</h2>
+    <p class="text-gray-400 text-sm">
+      Admin verifies doctors and hospitals before allowing blockchain interaction
+      to ensure trust and compliance.
+    </p>
+  </div>
+
+</section>
+
+<style>
+  .glass-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(14px);
+    border-radius: 18px;
+    padding: 40px;
+  }
+
+  .log-item {
+    background: rgba(0,0,0,0.6);
+    border-left: 4px solid #a855f7;
+    padding: 12px;
+    border-radius: 8px;
+  }
+</style>
+
+</body>
+</html>
